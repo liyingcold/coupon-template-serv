@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'org.spc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.apache.commons:commons-lang3:3.0'
+    implementation 'org.apache.commons:commons-collections4:4.1'
+    implementation 'commons-codec:commons-codec:1.9'
+    implementation 'com.alibaba:fastjson:1.2.31'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    implementation 'jakarta.validation:jakarta.validation-api:2.0.2'
+    implementation 'com.google.guava:guava:16.0'
+}

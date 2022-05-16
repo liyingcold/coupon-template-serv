@@ -1,0 +1,58 @@
+buildscript {
+    ext {
+        springBootVersion = '2.2.7.RELEASE'
+        postgresqlVersion = '42.2.16'
+        springCloudVersion = '2020.0.1'
+    }
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven { url 'https://maven.aliyun.com/repository/google'}
+        maven { url 'https://maven.aliyun.com/repository/jcenter'}
+        maven { url 'https://maven.aliyun.com/repository/central'}
+        mavenCentral()
+
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
+}
+
+group 'org.spc'
+version '1.0-SNAPSHOT'
+ext{
+    springCloudVersion = '2020.0.1'
+}
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven { url 'https://maven.aliyun.com/repository/google'}
+        maven { url 'https://maven.aliyun.com/repository/jcenter'}
+        maven { url 'https://maven.aliyun.com/repository/central'}
+        mavenCentral()
+    }
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    jar.enabled = true
+    /*指定jdk版本*/
+    sourceCompatibility = 1.8
+    /*java编译*/
+    tasks.withType(JavaCompile){
+        options.encoding = "UTF-8"
+    }
+    tasks.withType(GroovyCompile){
+        options.encoding = "UTF-8"
+    }
+    dependencyManagement{
+        imports {
+            mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.1"
+        }
+    }
+
+}
+
+
