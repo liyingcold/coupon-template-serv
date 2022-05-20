@@ -2,4 +2,5 @@ rootProject.name = 'coupon-template-serv'
 include 'coupon-template-api'
 include 'coupon-template-dao'
 include 'coupon-template-impl'
+include 'coupon-template-impl'
 
