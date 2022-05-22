@@ -1,6 +1,6 @@
-package com.spc.coupon.beans;
+package com.spc.coupon.template.api.beans;
 
-import com.spc.coupon.beans.rules.TemplateRule;
+import com.spc.coupon.template.api.beans.rules.TemplateRule;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

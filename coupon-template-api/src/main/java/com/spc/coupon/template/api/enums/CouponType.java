@@ -1,6 +1,5 @@
-package com.spc.coupon.enums;
+package com.spc.coupon.template.api.enums;
 
-import com.sun.org.glassfish.gmbal.Description;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.util.stream.Stream;
@@ -30,7 +29,7 @@ public enum CouponType {
     * @param code
      * @return
      */
-    public static com.spc.coupon.enums.CouponType convert(String code) {
+    public static CouponType convert(String code) {
             return Stream.of(values())
                     .filter(bean ->bean.code.equalsIgnoreCase(code))
                     .findFirst()

@@ -1,4 +1,4 @@
-package com.spc.coupon.beans.rules;
+package com.spc.coupon.template.api.beans.rules;
 
 public class Discount {
 

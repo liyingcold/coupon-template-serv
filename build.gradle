@@ -1,10 +1,10 @@
-import org.springframework.boot.gradle.plugin.SpringBootPlugin
-
 buildscript {
     ext {
-        springBootVersion = '2.2.7.RELEASE'
-        postgresqlVersion = '42.2.16'
-        springCloudVersion = '2020.0.1'
+        springBootVersion = '2.1.13.RELEASE'
+        springBootManagementVersion = '1.0.8.RELEASE'
+//        postgresqlVersion = '42.2.16'
+//        springCloudVersion = '2020.0.1'
+        springCloudVersion = 'Greenwich.SR6'
     }
     repositories {
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
@@ -16,6 +16,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:${springBootManagementVersion}")
 
     }
 }
@@ -26,13 +27,6 @@ ext{
     springCloudVersion = '2020.0.1'
 }
 allprojects {
-    repositories {
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
-        maven { url 'https://maven.aliyun.com/repository/google'}
-        maven { url 'https://maven.aliyun.com/repository/jcenter'}
-        maven { url 'https://maven.aliyun.com/repository/central'}
-        mavenCentral()
-    }
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
@@ -47,14 +41,39 @@ allprojects {
     tasks.withType(GroovyCompile){
         options.encoding = "UTF-8"
     }
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven { url 'https://maven.aliyun.com/repository/google'}
+        maven { url 'https://maven.aliyun.com/repository/jcenter'}
+        maven { url 'https://maven.aliyun.com/repository/central'}
+        mavenCentral()
+    }
+    dependencies {
+        compile group:'cn.hutool',name: 'hutool-all',version: '5.6.6'
+        implementation 'org.apache.commons:commons-lang3:3.0'
+        implementation 'org.apache.commons:commons-collections4:4.1'
+        implementation 'commons-codec:commons-codec:1.9'
+        implementation 'com.alibaba:fastjson:1.2.31'
+        compileOnly 'org.projectlombok:lombok:1.18.20'
+        implementation 'jakarta.validation:jakarta.validation-api:2.0.2'
+        implementation 'com.google.guava:guava:16.0'
+
+    }
     dependencyManagement{
         imports {
-            mavenBom(SpringBootPlugin.BOM_COORDINATES)
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.1"
+//            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.1"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.1.4.RELEASE"
         }
     }
 
 }
 
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+    maven { url 'https://maven.aliyun.com/repository/google'}
+    maven { url 'https://maven.aliyun.com/repository/jcenter'}
+    maven { url 'https://maven.aliyun.com/repository/central'}
+    mavenCentral()
 
+}
