@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -59,6 +60,5 @@ public class CouponTemplate implements Serializable {
     @Column(name = "rule",nullable = false)
     @Convert(converter = RuleConverter.class)
     private TemplateRule rule;
-
 
 }

@@ -24,7 +24,7 @@ public class CouponTemplateInfo {
     @NotNull
     private String desc;//优惠券描述
     @NotNull
-    private String Type;//优惠券类型（引用CouponType里的code）
+    private String type;//优惠券类型（引用CouponType里的code）
     private Long shopId;//优惠券适用门店 - 若无则为全店通用券
 
     @NotNull
