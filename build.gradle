@@ -53,7 +53,8 @@ allprojects {
         implementation 'org.apache.commons:commons-lang3:3.0'
         implementation 'org.apache.commons:commons-collections4:4.1'
         implementation 'commons-codec:commons-codec:1.9'
-        implementation 'com.alibaba:fastjson:1.2.31'
+//        20220524：fastjson爆出漏洞，<=1.2.80的版本都有问题。
+        implementation 'com.alibaba:fastjson:1.2.83'
         compileOnly 'org.projectlombok:lombok:1.18.20'
         implementation 'jakarta.validation:jakarta.validation-api:2.0.2'
         implementation 'com.google.guava:guava:16.0'

@@ -24,6 +24,9 @@ public interface CouponTemplateDao extends JpaRepository<CouponTemplate,Long> {
 
 //   多Id的In查询加分页（拼写时会自动关联出CouponTemplate中的字段！！！太强了吧）
 //    特殊的参数： 还可以直接在方法的参数上加入分页Pageable或排序Sort 的参数
+
+//   分页需要单独定义：Repository层不需要定义findAll()方法，可以直接在service层对其进行调用
+//   但如果需要查询全部数据具有分页功能，需要在Repository层进行重写
    Page<CouponTemplate> findAllByIdIn(List<Long> Id, Pageable pageable);
 
 //   根据shop ID + 可用状态查询店铺有多少券模板
