@@ -17,6 +17,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 //    dao里面已经引入过了，为啥这里还要引入一次。不然jpa的所有内置方法都没办法使用，真是焯了，排查了好久。。。。
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 
     compile project(":coupon-template-api")
     compile project(":coupon-template-dao")
