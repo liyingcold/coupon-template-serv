@@ -5,8 +5,9 @@ spring:
     name: coupon-template-serv
   datasource:
 #    数据库还没搞
-    jdbc-url: jdbc:postgresql://127.0.0.1:5432/springc_study
-    driver-class-name: org.postgresql.Driver
+#    Nacos只支持mysql，我就说怎么不上Nacos。乌鱼子
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/springc_study?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
     type: com.zaxxer.hikari.HikariDataSource

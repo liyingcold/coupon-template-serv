@@ -18,7 +18,8 @@ dependencies {
 //    compileOnly 'org.projectlombok:lombok:1.18.20'
 //    implementation 'jakarta.validation:jakarta.validation-api:2.0.2'
 //    implementation 'com.google.guava:guava:16.0'
-    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.20'
+//    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.20'
+    implementation 'mysql:mysql-connector-java:8.0.21'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 //    implementation 'com.vladminhalcea:hibernate-types-52:2.10.3'
     compile project(":coupon-template-api")
