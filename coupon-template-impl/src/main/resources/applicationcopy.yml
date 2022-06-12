@@ -1,32 +1,62 @@
-server:
-  port: 7788
-spring:
-  application:
-    name: coupon-template-serv
-  datasource:
-#    数据库还没搞
-#    Nacos只支持mysql，我就说怎么不上Nacos。乌鱼子
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/springc_study?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: root
-    type: com.zaxxer.hikari.HikariDataSource
-    # 数据库连接池参数配置，比如池子大小、超时时间、是否自动提交等等
-    hikari:
-      pool-name: GeekbangCouponHikari
-      connection-timeout: 5000
-      idle-timeout: 30000
-      maximum-pool-size: 10
-      minimum-idle: 5
-      max-lifetime: 60000
-      auto-commit: true
-  jpa:
-    show-sql: true
-    hibernate:
-#      防止ddl结构被自动执行，破坏生产数据
-      ddl-auto: none
-#      日志打印经过格式化得sql
-    properties:
-      hibernate.format_sql: true
-      hibernate.show_sql: true
-    open-in-view: false
+#server:
+#  port: 7788
+#spring:
+#  application:
+#    name: coupon-template-serv
+#  datasource:
+##    数据库还没搞
+##    Nacos只支持mysql，我就说怎么不上Nacos。乌鱼子
+#    jdbc-url: jdbc:mysql://127.0.0.1:3306/nacos-config?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: root
+#    type: com.zaxxer.hikari.HikariDataSource
+#    # 数据库连接池参数配置，比如池子大小、超时时间、是否自动提交等等
+#    hikari:
+#      pool-name: GeekbangCouponHikari
+#      connection-timeout: 5000
+#      idle-timeout: 30000
+#      maximum-pool-size: 10
+#      minimum-idle: 5
+#      max-lifetime: 60000
+#      auto-commit: true
+#  jpa:
+#    show-sql: true
+#    hibernate:
+##      防止ddl结构被自动执行，破坏生产数据
+#      ddl-auto: none
+##      日志打印经过格式化得sql
+#    properties:
+#      hibernate.format_sql: true
+#      hibernate.show_sql: true
+#    open-in-view: false
+##    nacos
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848,8858,8868
+#        service: coupon-template-serv
+#        #        心跳间隔时间 ms
+#        heart-beat-interval: 5000
+#        #        心跳请求默认15s不发出请求，则该服务为不健康服务
+#        heart-beat-timeout: 15000
+#        metadata:
+#          mydata: nacosabc
+#        #          户端在启动时是否读取本地配置项(一个文件)来获取服务列表
+#        naming-load-cache-at-start: false
+#        #        创建不同的集群
+#        cluster-name: Cluster-A
+#        #        m命名空间id
+#        namespace: dev
+#        #        两个服务若存在上下游调用关系，必须配置相同的group
+#        group: myGroup
+#        #        向注册中心注册服务，默认true
+#        register-enabled: true
+#        #        长连接用来监听服务端信息变化
+#        watch:
+#          enabled: true
+#        watch-delay: 30000
+#
+#logging:
+#  level:
+#    com.broadview.coupon: debug

@@ -1,10 +1,12 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.13.RELEASE'
+//        spring boot spring cloud nacos有严格的版本对照关系
+//        springBootVersion = '2.1.13.RELEASE'
+        springBootVersion = '2.4.2'
         springBootManagementVersion = '1.0.8.RELEASE'
 //        postgresqlVersion = '42.2.16'
-//        springCloudVersion = '2020.0.1'
-        springCloudVersion = 'Greenwich.SR6'
+        springCloudVersion = '2020.0.1'
+//        springCloudVersion = 'Greenwich.SR6'
     }
     repositories {
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
@@ -21,7 +23,7 @@ buildscript {
     }
 }
 
-group 'org.spc'
+group 'com.spc'
 version '1.0-SNAPSHOT'
 ext{
     springCloudVersion = '2020.0.1'
@@ -58,13 +60,16 @@ allprojects {
         compileOnly 'org.projectlombok:lombok:1.18.20'
         implementation 'jakarta.validation:jakarta.validation-api:2.0.2'
         implementation 'com.google.guava:guava:16.0'
+//        引入nacos依赖
+        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+
 
     }
     dependencyManagement{
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-//            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.1"
-            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.1.4.RELEASE"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.1"
+//            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.1.4.RELEASE"
         }
     }
 
@@ -76,5 +81,4 @@ repositories {
     maven { url 'https://maven.aliyun.com/repository/jcenter'}
     maven { url 'https://maven.aliyun.com/repository/central'}
     mavenCentral()
-
 }
